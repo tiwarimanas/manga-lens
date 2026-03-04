@@ -1,6 +1,6 @@
 
 
-```markdown
+
 # 🔤 Manga Lens — AI Manga Translator
 
 A free Chrome extension that translates raw manga, manhwa & manhua instantly using Google Gemini AI.
