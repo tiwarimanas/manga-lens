@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">🔤 Manga Lens <span class="ver">v3</span></div>
+    <div class="tagline">AI-Powered Comic Translator</div>
+  </div>
+
+  <!-- API KEYS -->
+  <div class="section">
+    <label>API Keys (auto-rotates on rate limit)</label>
+    <div class="key-row">
+      <span class="key-label">1</span>
+      <input type="password" id="apiKey" placeholder="Primary API key (required)">
+    </div>
+    <div class="key-row">
+      <span class="key-label">2</span>
+      <input type="password" id="apiKey2" placeholder="Backup key (optional)">
+    </div>
+    <div class="key-row">
+      <span class="key-label">3</span>
+      <input type="password" id="apiKey3" placeholder="Backup key (optional)">
+    </div>
+    <a href="https://aistudio.google.com/app/apikey" target="_blank" class="link">
+      🔗 Get free API keys (you can create multiple)
+    </a>
+  </div>
+
+  <!-- MODEL -->
+  <div class="section">
+    <label for="model">Model</label>
+    <select id="model">
+      <optgroup label="⚡ Recommended (Best Free Quota)">
+        <option value="gemini-2.0-flash">Gemini 2.0 Flash</option>
+        <option value="gemini-2.0-flash-lite">Gemini 2.0 Flash Lite</option>
+      </optgroup>
+      <optgroup label="🆕 Latest Models">
+        <option value="gemini-2.5-flash" selected>Gemini 2.5 Flash ⭐ Recommended</option>
+        <option value="gemini-2.5-flash-lite-preview">Gemini 2.5 Flash Lite (Preview)</option>
+      </optgroup>
+      <optgroup label="🧪 Experimental / Preview">
+        <option value="gemini-2.5-pro-preview-06-05">Gemini 2.5 Pro (Preview)</option>
+      </optgroup>
+      <optgroup label="📦 Older Stable">
+        <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
+        <option value="gemini-1.5-flash-8b">Gemini 1.5 Flash 8B</option>
+        <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
+      </optgroup>
+    </select>
+    <div class="hint" id="modelHint"></div>
+  </div>
+
+  <!-- LANGUAGE -->
+  <div class="section">
+    <label for="lang">Translate to</label>
+    <select id="lang">
+      <option value="English">English</option>
+      <option value="Spanish">Spanish</option>
+      <option value="French">French</option>
+      <option value="German">German</option>
+      <option value="Portuguese">Portuguese</option>
+      <option value="Italian">Italian</option>
+      <option value="Russian">Russian</option>
+      <option value="Arabic">Arabic</option>
+      <option value="Hindi">Hindi</option>
+      <option value="Indonesian">Indonesian</option>
+      <option value="Vietnamese">Vietnamese</option>
+      <option value="Thai">Thai</option>
+      <option value="Turkish">Turkish</option>
+      <option value="Polish">Polish</option>
+      <option value="Dutch">Dutch</option>
+      <option value="Filipino">Filipino</option>
+      <option value="Malay">Malay</option>
+      <option value="Bengali">Bengali</option>
+    </select>
+  </div>
+
+  <!-- DISPLAY MODE -->
+  <div class="section">
+    <label for="displayMode">Display Mode</label>
+    <select id="displayMode">
+      <option value="both">Panel + Overlay</option>
+      <option value="panel">Panel Only</option>
+      <option value="overlay">Overlay Only</option>
+    </select>
+  </div>
+
+  <button id="saveBtn" class="btn btn-primary">💾 Save Settings</button>
+
+  <div class="divider"></div>
+
+  <!-- PAGE RANGE -->
+  <div class="section">
+    <label for="pageRange">Page Range</label>
+    <input type="text" id="pageRange" placeholder='e.g. "all", "1-5", "3,5,8-10"' value="all">
+    <div class="hint" id="pageHint">Detected: loading…</div>
+  </div>
+
+  <!-- ACTION BUTTONS -->
+  <div class="btn-row">
+    <button id="translateBtn" class="btn btn-action">▶ Translate</button>
+    <button id="stopBtn" class="btn btn-danger">⏹ Stop</button>
+  </div>
+
+  <div id="status" class="status">Ready</div>
+
+  <!-- ERROR LOG -->
+  <div class="section" style="margin-top:12px">
+    <label>
+      Error Log
+      <button id="clearLog" class="clear-log-btn">Clear</button>
+    </label>
+    <div id="errorLog" class="error-log">
+      <div class="error-log-empty">No errors</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Hover any manga image → click 🔤 to translate<br>
+    Right-click image → "Translate this image"<br>
+    Click 🔤 again while loading → cancel
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

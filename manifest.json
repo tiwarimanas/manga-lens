@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Manga Lens – AI Translator",
+  "version": "3.0.0",
+  "description": "Translate manga, manhwa & manhua instantly using Google Gemini AI",
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "contextMenus"
+  ],
+
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*",
+    "<all_urls>"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Manga Lens",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
